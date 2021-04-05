@@ -109,9 +109,7 @@ SUBSYSTEM_DEF(input)
 		user.update_movement_keys()
 
 /datum/controller/subsystem/input/fire()
-	var/list/clients = GLOB.clients // Let's sing the list cache song
-	for(var/i in 1 to clients.len)
-		var/client/C = clients[i]
+	for(var/client/C in GLOB.clients)
 		C.keyLoop()
 
 /// *sigh
